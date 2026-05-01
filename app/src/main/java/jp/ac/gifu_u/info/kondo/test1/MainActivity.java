@@ -17,14 +17,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
-        Button b = (Button) findViewById(R.id.button);
-        b.setOnClickListener(this);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        // setContentView(R.layout.activity_main);
+        setContentView(new MyView(this));//05_android3で追加
+
+        // ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        //    Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+        //    v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+        //    return insets;
+        //});
+
+        // Button b = (Button) findViewById(R.id.button);
+        // b.setOnClickListener(this);
+
+        showToast("onCreate");
     }
 
     @Override
